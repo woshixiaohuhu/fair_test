@@ -1,0 +1,40 @@
+{
+  "className": "Scaffold",
+  "na": {
+    "appBar": {
+      "className": "AppBar"
+    },
+    "body": {
+      "className": "SafeArea",
+      "na": {
+        "child": {
+          "className": "Center",
+          "na": {
+            "child": {
+              "className": "Sugar.ifEqualBool",
+              "pa": [
+                "^(debug)"
+              ],
+              "na": {
+                "trueValue": {
+                  "className": "Text",
+                  "pa": [
+                    "debug"
+                  ]
+                },
+                "falseValue": {
+                  "className": "Text",
+                  "pa": [
+                    "release"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "methodMap": {},
+  "digest": "346ff8f397479d347fccd6f031812c9b"
+}

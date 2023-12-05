@@ -1,0 +1,203 @@
+{
+  "className": "Scaffold",
+  "na": {
+    "appBar": {
+      "className": "AppBar"
+    },
+    "body": {
+      "className": "SafeArea",
+      "na": {
+        "child": {
+          "className": "Column",
+          "na": {
+            "children": [
+              {
+                "className": "ListView",
+                "na": {
+                  "shrinkWrap": true,
+                  "children": [
+                    "%(widget1)",
+                    "%(widget2)"
+                  ]
+                }
+              },
+              {
+                "className": "SizedBox",
+                "na": {
+                  "height": 20
+                }
+              },
+              {
+                "className": "Sugar.listBuilder",
+                "na": {
+                  "itemBuilder": {
+                    "className": "ElevatedButton",
+                    "na": {
+                      "onPressed": "@(click(^(index)))",
+                      "child": {
+                        "className": "Text",
+                        "pa": [
+                          "#(点击跳转 参数$index)"
+                        ]
+                      }
+                    },
+                    "functionParameters": {
+                      "pa": [
+                        "context",
+                        "index"
+                      ]
+                    }
+                  },
+                  "shrinkWrap": true,
+                  "itemCount": 2
+                }
+              },
+              {
+                "className": "SizedBox",
+                "na": {
+                  "height": 20
+                }
+              },
+              {
+                "className": "Sugar.listBuilder",
+                "na": {
+                  "itemBuilder": {
+                    "className": "ElevatedButton",
+                    "na": {
+                      "onPressed": {
+                        "className": "Navigator.pushNamed",
+                        "pa": [
+                          "^(context)",
+                          "/NativePage"
+                        ],
+                        "na": {
+                          "arguments": {
+                            "tag": "#($index)"
+                          }
+                        }
+                      },
+                      "child": {
+                        "className": "Text",
+                        "pa": [
+                          "#(点击跳转 参数$index)"
+                        ]
+                      }
+                    },
+                    "functionParameters": {
+                      "pa": [
+                        "context",
+                        "index"
+                      ]
+                    }
+                  },
+                  "shrinkWrap": true,
+                  "itemCount": 2
+                }
+              },
+              {
+                "className": "Sugar.listBuilder",
+                "na": {
+                  "itemBuilder": {
+                    "className": "ElevatedButton",
+                    "na": {
+                      "onPressed": {
+                        "className": "Sugar.switchCase",
+                        "pa": [
+                          "^(index)",
+                          [
+                            {
+                              "className": "SugarSwitchCaseObj",
+                              "na": {
+                                "sugarCase": 0,
+                                "reValue": {
+                                  "className": "Navigator.pushNamed",
+                                  "pa": [
+                                    "^(context)",
+                                    "/NativePage"
+                                  ],
+                                  "na": {
+                                    "arguments": {
+                                      "tag": 0
+                                    }
+                                  }
+                                }
+                              }
+                            },
+                            {
+                              "className": "SugarSwitchCaseObj",
+                              "na": {
+                                "sugarCase": 1,
+                                "reValue": {
+                                  "className": "Navigator.popAndPushNamed",
+                                  "pa": [
+                                    "^(context)",
+                                    "/NativePage"
+                                  ],
+                                  "na": {
+                                    "result": {
+                                      "result": "popAndPushNamed-pop返回结果"
+                                    },
+                                    "arguments": {
+                                      "tag": 1
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          ],
+                          ""
+                        ]
+                      },
+                      "child": {
+                        "className": "Text",
+                        "pa": [
+                          "#(点击跳转 参数$index)"
+                        ]
+                      }
+                    },
+                    "functionParameters": {
+                      "pa": [
+                        "context",
+                        "index"
+                      ]
+                    }
+                  },
+                  "shrinkWrap": true,
+                  "itemCount": 4
+                }
+              }
+            ]
+          }
+        }
+      }
+    }
+  },
+  "methodMap": {
+    "getParmas2": "%(jsonEncode({result: 12312312}))",
+    "widget1": {
+      "className": "ElevatedButton",
+      "na": {
+        "onPressed": "@(click(1))",
+        "child": {
+          "className": "Text",
+          "pa": [
+            "点击跳转 参数1"
+          ]
+        }
+      }
+    },
+    "widget2": {
+      "className": "ElevatedButton",
+      "na": {
+        "onPressed": "@(click(2))",
+        "child": {
+          "className": "Text",
+          "pa": [
+            "点击跳转 参数2"
+          ]
+        }
+      }
+    }
+  },
+  "digest": "c6c6332938307c1c42cb03b5f34fbda5"
+}

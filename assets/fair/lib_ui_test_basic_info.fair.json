@@ -1,0 +1,83 @@
+{
+  "className": "Scaffold",
+  "na": {
+    "appBar": {
+      "className": "AppBar"
+    },
+    "body": {
+      "className": "SafeArea",
+      "na": {
+        "child": {
+          "className": "ListView",
+          "na": {
+            "children": [
+              {
+                "className": "ElevatedButton",
+                "na": {
+                  "onPressed": "@(onTap(1))",
+                  "child": {
+                    "className": "Text",
+                    "pa": [
+                      "点击获取debug"
+                    ]
+                  }
+                }
+              },
+              {
+                "className": "ElevatedButton",
+                "na": {
+                  "onPressed": "@(onTap(2))",
+                  "child": {
+                    "className": "Text",
+                    "pa": [
+                      "点击获取app信息"
+                    ]
+                  }
+                }
+              },
+              {
+                "className": "ElevatedButton",
+                "na": {
+                  "onPressed": "@(test3)",
+                  "child": {
+                    "className": "Text",
+                    "pa": [
+                      "测试3"
+                    ]
+                  }
+                }
+              },
+              {
+                "className": "Column",
+                "na": {
+                  "children": [
+                    {
+                      "className": "Text",
+                      "pa": [
+                        "^(os)"
+                      ]
+                    },
+                    {
+                      "className": "Text",
+                      "pa": [
+                        "^(version)"
+                      ]
+                    },
+                    {
+                      "className": "Text",
+                      "pa": [
+                        "#($isDebug)"
+                      ]
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      }
+    }
+  },
+  "methodMap": {},
+  "digest": "42b9e55528061a78e86a24c93c753563"
+}

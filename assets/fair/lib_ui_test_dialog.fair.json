@@ -1,0 +1,88 @@
+{
+  "className": "Scaffold",
+  "na": {
+    "appBar": {
+      "className": "AppBar"
+    },
+    "body": {
+      "className": "SafeArea",
+      "na": {
+        "child": {
+          "className": "Column",
+          "na": {
+            "children": [
+              {
+                "className": "ElevatedButton",
+                "na": {
+                  "onPressed": "@(showToast)",
+                  "child": {
+                    "className": "Text",
+                    "pa": [
+                      "点击toast"
+                    ]
+                  }
+                }
+              },
+              {
+                "className": "ElevatedButton",
+                "na": {
+                  "onPressed": "@(showDialog)",
+                  "child": {
+                    "className": "Text",
+                    "pa": [
+                      "点击dialog"
+                    ]
+                  }
+                }
+              },
+              {
+                "className": "ElevatedButton",
+                "na": {
+                  "onPressed": "#(showDialog2)",
+                  "child": {
+                    "className": "Text",
+                    "pa": [
+                      "点击dialog2"
+                    ]
+                  }
+                }
+              },
+              {
+                "className": "ElevatedButton",
+                "na": {
+                  "onPressed": "#(showDialog3)",
+                  "child": {
+                    "className": "Text",
+                    "pa": [
+                      "点击dialog3"
+                    ]
+                  }
+                }
+              },
+              {
+                "className": "TextField",
+                "na": {
+                  "onChanged": "@(onChanged)"
+                }
+              },
+              {
+                "className": "ElevatedButton",
+                "na": {
+                  "onPressed": "@(checkInputStr)",
+                  "child": {
+                    "className": "Text",
+                    "pa": [
+                      "delegate调用js实例：获取输入框内容"
+                    ]
+                  }
+                }
+              }
+            ]
+          }
+        }
+      }
+    }
+  },
+  "methodMap": {},
+  "digest": "2018223f1c9e1bf01c9e76dc368b66a1"
+}

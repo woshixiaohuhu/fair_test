@@ -1,0 +1,50 @@
+name: example
+description: A new Flutter project.
+publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+version: 1.0.0+1
+
+environment:
+  sdk: ">=2.12.0 <4.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.2
+
+  fair: ^3.4.0
+  fair_extension: any
+
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^2.0.0
+  build_runner: ^2.1.2
+  fair_compiler: ^1.9.0
+
+dependency_overrides:
+  collection: 1.17.0
+  analyzer: 5.6.0
+  fair_version: 3.3.0
+
+  fair_extension:
+    git:
+      url: git@github.com:wuba/Fair.git
+      branch: main
+      path: fair_extension
+
+
+  fair:
+    git:
+      url: git@github.com:wuba/Fair.git
+      branch: main
+      path: fair
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/
+    - assets/fair/
+    - assets/images/
+    - assets/plugin/
+

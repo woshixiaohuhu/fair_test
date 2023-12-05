@@ -1,0 +1,142 @@
+{
+  "className": "Scaffold",
+  "na": {
+    "appBar": {
+      "className": "AppBar"
+    },
+    "body": {
+      "className": "SafeArea",
+      "na": {
+        "child": {
+          "className": "Column",
+          "na": {
+            "children": [
+              {
+                "className": "Sugar.listBuilder",
+                "na": {
+                  "shrinkWrap": true,
+                  "itemBuilder": {
+                    "className": "Padding",
+                    "na": {
+                      "padding": {
+                        "className": "EdgeInsets.all",
+                        "pa": [
+                          30
+                        ]
+                      },
+                      "child": {
+                        "className": "ElevatedButton",
+                        "na": {
+                          "child": {
+                            "className": "Text",
+                            "pa": [
+                              "传参数"
+                            ]
+                          },
+                          "onPressed": "@(click2(^(index)))"
+                        }
+                      }
+                    },
+                    "functionParameters": {
+                      "pa": [
+                        "context",
+                        "index"
+                      ]
+                    }
+                  },
+                  "itemCount": 3
+                }
+              },
+              {
+                "className": "ElevatedButton",
+                "na": {
+                  "child": {
+                    "className": "Text",
+                    "pa": [
+                      "1"
+                    ]
+                  },
+                  "onPressed": "@(click)"
+                }
+              },
+              {
+                "className": "ElevatedButton",
+                "na": {
+                  "child": {
+                    "className": "Text",
+                    "pa": [
+                      "a"
+                    ]
+                  },
+                  "onPressed": "@(click2(1))"
+                }
+              },
+              {
+                "className": "ElevatedButton",
+                "na": {
+                  "child": {
+                    "className": "Text",
+                    "pa": [
+                      "b"
+                    ]
+                  },
+                  "onPressed": "@(click3(3))"
+                }
+              },
+              {
+                "className": "ElevatedButton",
+                "na": {
+                  "child": {
+                    "className": "Text",
+                    "pa": [
+                      "c"
+                    ]
+                  },
+                  "onPressed": "@(click3(^(index1)))"
+                }
+              },
+              {
+                "className": "ElevatedButton",
+                "na": {
+                  "child": {
+                    "className": "Text",
+                    "pa": [
+                      "click4"
+                    ]
+                  },
+                  "onPressed": "@(click4(click4))"
+                }
+              },
+              {
+                "className": "ElevatedButton",
+                "na": {
+                  "child": {
+                    "className": "Text",
+                    "pa": [
+                      "2"
+                    ]
+                  },
+                  "onPressed": "@(click)"
+                }
+              },
+              {
+                "className": "ElevatedButton",
+                "na": {
+                  "child": {
+                    "className": "Text",
+                    "pa": [
+                      "3"
+                    ]
+                  },
+                  "onPressed": "@(click)"
+                }
+              }
+            ]
+          }
+        }
+      }
+    }
+  },
+  "methodMap": {},
+  "digest": "326a0bbd421f121f8b645739022383e0"
+}
