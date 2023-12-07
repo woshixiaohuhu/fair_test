@@ -12,47 +12,6 @@
           "na": {
             "children": [
               {
-                "className": "ListView",
-                "na": {
-                  "shrinkWrap": true,
-                  "children": [
-                    "%(widget1)",
-                    "%(widget2)"
-                  ]
-                }
-              },
-              {
-                "className": "SizedBox",
-                "na": {
-                  "height": 20
-                }
-              },
-              {
-                "className": "Sugar.listBuilder",
-                "na": {
-                  "itemBuilder": {
-                    "className": "ElevatedButton",
-                    "na": {
-                      "onPressed": "@(click(^(index)))",
-                      "child": {
-                        "className": "Text",
-                        "pa": [
-                          "#(点击跳转 参数$index)"
-                        ]
-                      }
-                    },
-                    "functionParameters": {
-                      "pa": [
-                        "context",
-                        "index"
-                      ]
-                    }
-                  },
-                  "shrinkWrap": true,
-                  "itemCount": 2
-                }
-              },
-              {
                 "className": "SizedBox",
                 "na": {
                   "height": 20
@@ -72,7 +31,7 @@
                         ],
                         "na": {
                           "arguments": {
-                            "tag": "#($index)"
+                            "tag": "^(index)"
                           }
                         }
                       },
@@ -92,6 +51,12 @@
                   },
                   "shrinkWrap": true,
                   "itemCount": 2
+                }
+              },
+              {
+                "className": "SizedBox",
+                "na": {
+                  "height": 20
                 }
               },
               {
@@ -163,7 +128,7 @@
                     }
                   },
                   "shrinkWrap": true,
-                  "itemCount": 4
+                  "itemCount": 2
                 }
               }
             ]
@@ -199,5 +164,5 @@
       }
     }
   },
-  "digest": "c6c6332938307c1c42cb03b5f34fbda5"
+  "digest": "9146420775fbcbb5c254cee59ed49816"
 }

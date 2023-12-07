@@ -15,38 +15,66 @@ class ListViewTest extends StatelessWidget {
       body: SafeArea(
         child: Column(
           children: [
-            ListView(
-              shrinkWrap: true,
-              children: [
-                widget1(),
-                widget2(),
-              ],
-            ),
+            // ListView(
+            //   shrinkWrap: true,
+            //   children: [
+            //     widget1(),
+            //     widget2(),
+            //   ],
+            // ),
+            // const SizedBox(height: 20),
+            // Sugar.listBuilder(
+            //   itemBuilder: (context, index) {
+            //     /*   "na": {
+            //           "onPressed": "@(click(^(index)))",//这里的index也能解析出来
+            //           "child": {
+            //             "className": "Text",
+            //             "pa": [
+            //               "#(点击跳转 参数$index)"//这里的index能解析出来
+            //             ]
+            //           }
+            //         },*/
+            //     return ElevatedButton(
+            //       ///将以int类型传递
+            //       onPressed: () => click(index),
+            //       /**/
+            //       child: Text('点击跳转 参数$index'),
+            //     );
+            //   },
+            //   shrinkWrap: true,
+            //   itemCount: 2,
+            // ),
             const SizedBox(height: 20),
             Sugar.listBuilder(
               itemBuilder: (context, index) {
                 return ElevatedButton(
                   ///将以int类型传递
-                  onPressed: () => click(index),
-                  child: Text('点击跳转 参数$index'),
-                );
-              },
-              shrinkWrap: true,
-              itemCount: 2,
-            ),
-            const SizedBox(height: 20),
-            Sugar.listBuilder(
-              itemBuilder: (context, index) {
-                return ElevatedButton(
-                  ///将以int类型传递
+                  ///    "na": {
+                  //    "arguments": {
+                  //      "tag": "#($index)" //这里的index解析不出来！
+                  //     }
+                  // onPressed: () => Navigator.pushNamed(context, '/NativePage',
+                  //     arguments: {'tag': '$index'}),
+                  /*   "na": {
+                          "arguments": {
+                            "tag": "^(index)" //也解析不出来
+                          }
+                        }*/
                   onPressed: () => Navigator.pushNamed(context, '/NativePage',
-                      arguments: {'tag': '$index'}),
+                      arguments: {'tag': index}),
+                  /*    "child": {
+                        "className": "Text",
+                        "pa": [
+                          "#(点击跳转 参数$index)" //这里的index能解析出来
+                        ]
+                      }*/
                   child: Text('点击跳转 参数$index'),
                 );
               },
               shrinkWrap: true,
               itemCount: 2,
             ),
+            const SizedBox(height: 20),
             Sugar.listBuilder(
               itemBuilder: (context, index) {
                 return ElevatedButton(
@@ -192,18 +220,24 @@ class ListViewTest extends StatelessWidget {
                         // ),
                       ],
                       /*[Fair] 警告: 不识别的语法节点类型 NullLiteralImpl package:example/ui/test_list_view.dart:145:29: null*/
-                      /*[Fair] 警告: 不识别的语法节点类型 NullLiteralImpl package:example/ui/test_list_view.dart:147:32: null*/
                       //() => null, //转化成 null
+                      /*[Fair] 警告: 不识别的语法节点类型 NullLiteralImpl package:example/ui/test_list_view.dart:147:32: null*/
                       //     () {
                       //   return null;
                       // })
                       () {} //转化成：  ""
                       ),
+                  /* "child": {
+                        "className": "Text",
+                        "pa": [
+                          "#(点击跳转 参数$index)"////这里的index能解析出来
+                        ]
+                      }*/
                   child: Text('点击跳转 参数$index'),
                 );
               },
               shrinkWrap: true,
-              itemCount: 4,
+              itemCount: 2,
             ),
           ],
         ),
@@ -235,11 +269,20 @@ class ListViewTest extends StatelessWidget {
                             ['result']: '12312312',
                         }));
                     }*/
+  /*  "methodMap": {
+    "getParmas2": "%(jsonEncode({result: 12312312}))",//为什么这种返回类型也生成了methodMap
+    }*/
   String getParmas2() {
     return jsonEncode({'result': '12312312'});
   }
 
-  /*返回字符串传可以*/
+  /* getParmas3: function getParmas3() {
+                    const __thiz__ = this;
+                    with(__thiz__) {
+                        return '1234';
+                    }
+                },*/
+  /*返回字符串传可以--不会生生成methodMap*/
   String getParmas3() {
     return '1234';
   }
