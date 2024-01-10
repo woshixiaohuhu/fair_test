@@ -22,6 +22,31 @@ class FairBasicInfoPlugin extends IFairPlugin {
     ///空实现，仅用dart端占位
   }
 
+  Future<dynamic> getTitle({int? index}) async {
+    ///空实现，仅用dart端占位
+  }
+
+  Future<dynamic> sendEvent(dynamic map) async {
+    ///空实现，仅用dart端占位
+  }
+
+  Future<dynamic> _sendEvent(dynamic map) {
+    var req = jsonDecode(map);
+    var pageName = req['pageName'];
+    var args = req['args'];
+
+    var callId = args['callId'];
+    var eventName = args['eventName'];
+    var index = args['index'];
+
+    print('$eventName,$index');
+    var resp = {
+      'callId': callId,
+      'pageName': pageName,
+    };
+    return Future.value(jsonEncode(resp));
+  }
+
   Future<dynamic> _getAppInfo(dynamic map) async {
     var req = jsonDecode(map);
     var pageName = req['pageName'];
@@ -46,6 +71,26 @@ class FairBasicInfoPlugin extends IFairPlugin {
     return Future.value(jsonEncode(resp));
   }
 
+  Future<dynamic> _getTitle(dynamic map) async {
+    var req = jsonDecode(map);
+    var pageName = req['pageName'];
+    var args = req['args'];
+    var index = args['index'];
+
+    List _issueTasks = ['hello', 'world'];
+    String title = '';
+    if (index is int) {
+      title = _issueTasks[index] ?? '';
+    } else if (index is String) {
+      try {
+        int nIndex = int.parse(index);
+        title = _issueTasks[nIndex] ?? '';
+      } catch (e) {}
+    }
+    var resp = {'title': '$title'};
+    return Future.value(jsonEncode(resp));
+  }
+
   Map<String, dynamic> _getAppData() {
     return {
       'os': Platform.isAndroid ? 'android' : 'ios',
@@ -60,6 +105,8 @@ class FairBasicInfoPlugin extends IFairPlugin {
     var functions = <String, Function>{};
     functions.putIfAbsent('getAppInfo', () => _getAppInfo);
     functions.putIfAbsent('getAppIsDebug', () => _getAppIsDebug);
+    functions.putIfAbsent('sendEvent', () => _sendEvent);
+    functions.putIfAbsent('getTitle', () => _getTitle);
     return functions;
   }
 }

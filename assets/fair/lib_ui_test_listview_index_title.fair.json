@@ -1,0 +1,36 @@
+{
+  "className": "Scaffold",
+  "na": {
+    "appBar": {
+      "className": "AppBar"
+    },
+    "body": {
+      "className": "Sugar.listBuilder",
+      "na": {
+        "itemBuilder": {
+          "className": "Text",
+          "pa": [
+            "%(getTitle(^(index)))"
+          ],
+          "na": {
+            "style": {
+              "className": "TextStyle",
+              "na": {
+                "color": "#(Colors.red)"
+              }
+            }
+          },
+          "functionParameters": {
+            "pa": [
+              "context",
+              "index"
+            ]
+          }
+        },
+        "itemCount": "%(issueTaskCount)"
+      }
+    }
+  },
+  "methodMap": {},
+  "digest": "0e23af04d519069e57d199ff1e2325bd"
+}

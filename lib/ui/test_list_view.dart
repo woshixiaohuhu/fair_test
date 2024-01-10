@@ -1,12 +1,25 @@
 import 'dart:convert';
 
+import 'package:example/ui/fair_basic_info_plugin.dart';
 import 'package:fair/fair.dart';
 import 'package:fair_extension/navigator/fair_navigator_plugin.dart';
+import 'package:fair_extension/toast/fair_toast_plugin.dart';
 import 'package:flutter/material.dart';
 
 @FairPatch()
-class ListViewTest extends StatelessWidget {
+class ListViewTest extends StatefulWidget {
   ListViewTest({Key? key}) : super(key: key);
+
+  @override
+  State<ListViewTest> createState() => _ListViewTestState();
+}
+
+class _ListViewTestState extends State<ListViewTest> {
+  void click1(int index) {
+    FairToast.show(msg: '$index');
+    FairBasicInfoPlugin()
+        .sendEvent({'index': '$index', 'eventName': '_removeIssueTasks'});
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -15,38 +28,61 @@ class ListViewTest extends StatelessWidget {
       body: SafeArea(
         child: Column(
           children: [
-            // ListView(
-            //   shrinkWrap: true,
-            //   children: [
-            //     widget1(),
-            //     widget2(),
-            //   ],
-            // ),
-            // const SizedBox(height: 20),
-            // Sugar.listBuilder(
-            //   itemBuilder: (context, index) {
-            //     /*   "na": {
-            //           "onPressed": "@(click(^(index)))",//这里的index也能解析出来
-            //           "child": {
-            //             "className": "Text",
-            //             "pa": [
-            //               "#(点击跳转 参数$index)"//这里的index能解析出来
-            //             ]
-            //           }
-            //         },*/
-            //     return ElevatedButton(
-            //       ///将以int类型传递
-            //       onPressed: () => click(index),
-            //       /**/
-            //       child: Text('点击跳转 参数$index'),
-            //     );
-            //   },
-            //   shrinkWrap: true,
-            //   itemCount: 2,
-            // ),
+            ListView(
+              shrinkWrap: true,
+              children: [
+                widget1(),
+                widget2(),
+              ],
+            ),
+            const SizedBox(height: 20),
+            ListView.builder(
+              itemBuilder:
+                  Sugar.indexedWidgetBuilder((context, index) => Column(
+                        children: [
+                          Text('测试-》indexedWidgetBuilder$index'),
+                          Container(
+                            width: 100,
+                            height: 40,
+                            color: Colors.red,
+                            child: IconButton(
+                                onPressed: () => click1(index),
+                                icon: Icon(
+                                  Icons.close,
+                                  size: 30,
+                                )),
+                          ),
+                        ],
+                      )),
+              shrinkWrap: true,
+              itemCount: 2,
+            ),
+            Sugar.listBuilder(
+              itemBuilder: (context, index) {
+                /*   "na": {
+                      "onPressed": "@(click(^(index)))",//这里的index也能解析出来
+                      "child": {
+                        "className": "Text",
+                        "pa": [
+                          "#(点击跳转 参数$index)"//这里的index能解析出来
+                        ]
+                      }
+                    },*/
+                return ElevatedButton(
+                  ///将以int类型传递
+                  onPressed: () => click(index),
+                  /**/
+                  child: Text('点击跳转 参数$index'),
+                );
+              },
+              shrinkWrap: true,
+              itemCount: 2,
+            ),
             const SizedBox(height: 20),
             Sugar.listBuilder(
               itemBuilder: (context, index) {
+                //var item = listData[index];
+                //item.xx
                 return ElevatedButton(
                   ///将以int类型传递
                   ///    "na": {
@@ -61,14 +97,47 @@ class ListViewTest extends StatelessWidget {
                           }
                         }*/
                   onPressed: () => Navigator.pushNamed(context, '/NativePage',
-                      arguments: {'tag': index}),
+                      arguments: {'tag': index}), //这里的index解析不了
                   /*    "child": {
                         "className": "Text",
                         "pa": [
                           "#(点击跳转 参数$index)" //这里的index能解析出来
                         ]
                       }*/
-                  child: Text('点击跳转 参数$index'),
+                  child: Text('点击跳转 参数$index'), //可以解析
+                  //child: Text('点击跳转 参数${index}'),//写成这种不行
+                );
+              },
+              shrinkWrap: true,
+              itemCount: 2,
+            ),
+            Sugar.listBuilder(
+              itemBuilder: (context, index) {
+                //var item = listData[index];
+                //item.xx
+                return ElevatedButton(
+                  ///将以int类型传递
+                  ///    "na": {
+                  //    "arguments": {
+                  //      "tag": "#($index)" //这里的index解析不出来！
+                  //     }
+                  // onPressed: () => Navigator.pushNamed(context, '/NativePage',
+                  //     arguments: {'tag': '$index'}),
+                  /*   "na": {
+                          "arguments": {
+                            "tag": "^(index)" //也解析不出来
+                          }
+                        }*/
+                  onPressed: () => Navigator.pushNamed(context, '/NativePage',
+                      arguments: index), //这里的index解析不了
+                  /*    "child": {
+                        "className": "Text",
+                        "pa": [
+                          "#(点击跳转 参数$index)" //这里的index能解析出来
+                        ]
+                      }*/
+                  child: Text('点击跳转 参数$index--直接传index 解析 pa'), //可以解析
+                  //child: Text('点击跳转 参数${index}'),//写成这种不行
                 );
               },
               shrinkWrap: true,
@@ -269,9 +338,6 @@ class ListViewTest extends StatelessWidget {
                             ['result']: '12312312',
                         }));
                     }*/
-  /*  "methodMap": {
-    "getParmas2": "%(jsonEncode({result: 12312312}))",//为什么这种返回类型也生成了methodMap
-    }*/
   String getParmas2() {
     return jsonEncode({'result': '12312312'});
   }
@@ -282,7 +348,6 @@ class ListViewTest extends StatelessWidget {
                         return '1234';
                     }
                 },*/
-  /*返回字符串传可以--不会生生成methodMap*/
   String getParmas3() {
     return '1234';
   }

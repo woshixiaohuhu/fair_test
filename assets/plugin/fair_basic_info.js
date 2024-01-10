@@ -19,6 +19,58 @@ let FairBasicInfoPlugin = function() {
             })
             return a;
         },
+        getTitle: async function(req) {
+            let eventName = '';
+            let index = '';
+            if (req.index) {
+                index = req.index;
+            }
+
+            let reqMap = {
+                'pageName': '#FairKey#',
+                'funcName': 'invokePlugin',
+                'className': 'FairBasicInfoPlugin#getTitle',
+                'args': {
+                    index: index,
+                }
+            };
+            let a = '';
+            await new Promise((resolve, reject) => {
+                invokeFlutterCommonChannel(JSON.stringify(reqMap), (resultStr) => {
+                    let responseMap = JSON.parse(resultStr);
+                    a = responseMap['title'];
+                    resolve();
+                })
+            })
+            return a;
+        },
+        sendEvent: async function(req) {
+            let eventName = '';
+            if (req.eventName) {
+                eventName = req.eventName;
+            }
+            let index = '';
+            if (req.index) {
+                index = req.index;
+            }
+
+            let reqMap = {
+                'pageName': '#FairKey#',
+                'funcName': 'invokePlugin',
+                'className': 'FairBasicInfoPlugin#sendEvent',
+                'args': {
+                    index: index,
+                    eventName: eventName
+                }
+            };
+            let a = '';
+            await new Promise((resolve, reject) => {
+                invokeFlutterCommonChannel(JSON.stringify(reqMap), (resultStr) => {
+                    resolve();
+                })
+            })
+            return a;
+        },
         getAppInfo: async function(req) {
             let id = 'FairBasicInfoPlugin' + (FairBasicInfoPluginCallBackId++);
             // 设置回调

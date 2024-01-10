@@ -15,17 +15,22 @@ class _TestBasicInfoState extends State<TestBasicInfo> {
   var os;
   var version;
   var isDebug;
+  var title;
 
   onLoad() {
     os = ' ';
     version = ' ';
     isDebug = false;
+    title = '';
+    getTitle();
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+        title: Text('$title'),
+      ),
       body: SafeArea(
         child: ListView(children: [
           ElevatedButton(
@@ -73,5 +78,10 @@ class _TestBasicInfoState extends State<TestBasicInfo> {
       isDebug = result['appIsDebug'];
       setState(() {});
     });
+  }
+
+  void getTitle() async {
+    title = await FairBasicInfoPlugin().getTitle();
+    setState(() {});
   }
 }

@@ -12,6 +12,101 @@
           "na": {
             "children": [
               {
+                "className": "ListView",
+                "na": {
+                  "shrinkWrap": true,
+                  "children": [
+                    "%(widget1)",
+                    "%(widget2)"
+                  ]
+                }
+              },
+              {
+                "className": "SizedBox",
+                "na": {
+                  "height": 20
+                }
+              },
+              {
+                "className": "ListView.builder",
+                "na": {
+                  "itemBuilder": {
+                    "className": "Sugar.indexedWidgetBuilder",
+                    "pa": [
+                      {
+                        "className": "Column",
+                        "na": {
+                          "children": [
+                            {
+                              "className": "Text",
+                              "pa": [
+                                "#(测试-》indexedWidgetBuilder$index)"
+                              ]
+                            },
+                            {
+                              "className": "Container",
+                              "na": {
+                                "width": 100,
+                                "height": 40,
+                                "color": "#(Colors.red)",
+                                "child": {
+                                  "className": "IconButton",
+                                  "na": {
+                                    "onPressed": "@(click1(^(index)))",
+                                    "icon": {
+                                      "className": "Icon",
+                                      "pa": [
+                                        "#(Icons.close)"
+                                      ],
+                                      "na": {
+                                        "size": 30
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          ]
+                        },
+                        "functionParameters": {
+                          "pa": [
+                            "context",
+                            "index"
+                          ]
+                        }
+                      }
+                    ]
+                  },
+                  "shrinkWrap": true,
+                  "itemCount": 2
+                }
+              },
+              {
+                "className": "Sugar.listBuilder",
+                "na": {
+                  "itemBuilder": {
+                    "className": "ElevatedButton",
+                    "na": {
+                      "onPressed": "@(click(^(index)))",
+                      "child": {
+                        "className": "Text",
+                        "pa": [
+                          "#(点击跳转 参数$index)"
+                        ]
+                      }
+                    },
+                    "functionParameters": {
+                      "pa": [
+                        "context",
+                        "index"
+                      ]
+                    }
+                  },
+                  "shrinkWrap": true,
+                  "itemCount": 2
+                }
+              },
+              {
                 "className": "SizedBox",
                 "na": {
                   "height": 20
@@ -39,6 +134,40 @@
                         "className": "Text",
                         "pa": [
                           "#(点击跳转 参数$index)"
+                        ]
+                      }
+                    },
+                    "functionParameters": {
+                      "pa": [
+                        "context",
+                        "index"
+                      ]
+                    }
+                  },
+                  "shrinkWrap": true,
+                  "itemCount": 2
+                }
+              },
+              {
+                "className": "Sugar.listBuilder",
+                "na": {
+                  "itemBuilder": {
+                    "className": "ElevatedButton",
+                    "na": {
+                      "onPressed": {
+                        "className": "Navigator.pushNamed",
+                        "pa": [
+                          "^(context)",
+                          "/NativePage"
+                        ],
+                        "na": {
+                          "arguments": "^(index)"
+                        }
+                      },
+                      "child": {
+                        "className": "Text",
+                        "pa": [
+                          "#(点击跳转 参数$index--直接传index 解析 pa)"
                         ]
                       }
                     },
@@ -164,5 +293,5 @@
       }
     }
   },
-  "digest": "9146420775fbcbb5c254cee59ed49816"
+  "digest": "36161fa08020e484b35153e5fe84fbaa"
 }

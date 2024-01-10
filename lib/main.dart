@@ -2,9 +2,12 @@ import 'dart:convert';
 
 import 'package:example/ui/fair_basic_info_plugin.dart';
 import 'package:example/ui/fair_native.dart';
+import 'package:example/ui/list_view_index_test_delegate.dart';
 import 'package:example/ui/test_btn.dart';
 import 'package:example/ui/test_delegate.dart';
+import 'package:example/ui/test_observer_lifecycle.dart';
 import 'package:example/ui/test_page_native.dart';
+import 'package:example/ui/test_statefullwidget_didupdatewidget.dart';
 import 'package:example/ui/xh_basic_plugin.dart';
 import 'package:fair/fair.dart';
 import 'package:fair_extension/fair_extension.dart';
@@ -20,6 +23,8 @@ void main() {
   FairApp.runApplication(
     FairApp(
       delegate: {
+        'lib_ui_test_listview_index_title': (context, data) =>
+            TestListViewIndexDelegate(),
         // 'test_dialog': (context, data) => TestDelegate(),
         // 'test_dialog1': (context, data) => TestDelegate(),
         // 'test_dialog2': (context, data) => TestDelegate(),
@@ -50,7 +55,6 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       theme: ThemeData(
         primarySwatch: Colors.blue,
-        // useMaterial3: true
       ),
       navigatorKey: FairExtension.fairNavigatorKey,
       // 设置初始路由
@@ -103,11 +107,55 @@ class HomePage extends StatelessWidget {
       body: SafeArea(
         child: ListView(
           children: [
+            addItem("测试app前后台切换", () {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => TestLifeCycleObserver()));
+            }),
+            addItem("测试list view index title", () {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => FairWidget(
+                            name: 'lib_ui_test_listview_index_title',
+                            path:
+                                'assets/fair/lib_ui_test_listview_index_title.fair.json',
+                          )));
+            }),
+            addItem("测试Sugar.map", () {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => FairWidget(
+                            name:
+                                'lib_ui_listview_list_view_componeny_hotel_listview.fair',
+                            path:
+                                'assets/fair/lib_ui_listview_list_view_componeny_hotel_listview.fair.json',
+                          )));
+            }),
+            addItem("测试statefull更新", () {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => TestStatefullupdatePage()));
+            }),
             addItem("Testbtn", () {
               Navigator.push(
                 context,
                 MaterialPageRoute(
                   builder: (context) => Testbtn(),
+                ),
+              );
+            }),
+            addItem("TestSomeWidget", () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => FairWidget(
+                    name: 'TestSomeWidget',
+                    path: 'assets/fair/lib_ui_test_somewidget_block.fair.json',
+                  ),
                 ),
               );
             }),

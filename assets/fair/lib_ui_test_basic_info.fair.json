@@ -2,7 +2,15 @@
   "className": "Scaffold",
   "na": {
     "appBar": {
-      "className": "AppBar"
+      "className": "AppBar",
+      "na": {
+        "title": {
+          "className": "Text",
+          "pa": [
+            "#($title)"
+          ]
+        }
+      }
     },
     "body": {
       "className": "SafeArea",
@@ -79,5 +87,5 @@
     }
   },
   "methodMap": {},
-  "digest": "42b9e55528061a78e86a24c93c753563"
+  "digest": "97d10739ecb0ab73d0d3a70ee0c38ffd"
 }
