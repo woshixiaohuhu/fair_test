@@ -1,0 +1,15 @@
+{
+  "className": "Scaffold",
+  "na": {
+    "body": {
+      "className": "Container",
+      "na": {
+        "child": {
+          "className": "Text"
+        }
+      }
+    }
+  },
+  "methodMap": {},
+  "digest": "0816617c770784931190d7e62175dc5e"
+}

@@ -10,7 +10,7 @@
         "itemBuilder": {
           "className": "Text",
           "pa": [
-            "%(getTitle(^(index)))"
+            "%(getTitle3(^(index)))"
           ],
           "na": {
             "style": {
@@ -32,5 +32,5 @@
     }
   },
   "methodMap": {},
-  "digest": "0e23af04d519069e57d199ff1e2325bd"
+  "digest": "707203a777d3b44f24f4e6b962ad0685"
 }

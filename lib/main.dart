@@ -107,6 +107,19 @@ class HomePage extends StatelessWidget {
       body: SafeArea(
         child: ListView(
           children: [
+            addItem("测试future", () {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => FairWidget(
+                        name: 'lib_ui_test_future',
+                        path:
+                        'assets/fair/lib_ui_test_future.fair.json',
+                      )));
+            }),
+
+
+
             addItem("测试app前后台切换", () {
               Navigator.push(
                   context,
