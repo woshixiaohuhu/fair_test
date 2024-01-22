@@ -1,5 +1,6 @@
 import 'package:fair/fair.dart';
 import 'package:flutter/material.dart';
+import 'package:get/utils.dart';
 
 @FairPatch()
 class TestFuture extends StatefulWidget {
@@ -44,7 +45,8 @@ stack: "@↵asyncFunctionResume@[native code]↵onLoad@↵_invokeMethod@↵invok
 status: "rejected"*/
   Future<void> onLoad() async {
     result = '100';
-    await Future.delayed(Duration(seconds: 1));
+    //await Future.delayed(Duration(seconds: 1));
+    await 3.seconds.delay();
     result = '300';
     setState(() {});
   }

@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:example/ui/fair_basic_info_plugin.dart';
 import 'package:example/ui/fair_native.dart';
 import 'package:example/ui/list_view_index_test_delegate.dart';
+import 'package:example/ui/login.dart';
 import 'package:example/ui/test_btn.dart';
 import 'package:example/ui/test_delegate.dart';
 import 'package:example/ui/test_observer_lifecycle.dart';
@@ -107,19 +108,28 @@ class HomePage extends StatelessWidget {
       body: SafeArea(
         child: ListView(
           children: [
+            addItem("测试图片fair", () {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => FairWidget(
+                            name: 'lib_ui_test_image',
+                            path: 'assets/fair/lib_ui_test_image.fair.json',
+                          )));
+            }),
             addItem("测试future", () {
               Navigator.push(
                   context,
                   MaterialPageRoute(
                       builder: (context) => FairWidget(
-                        name: 'lib_ui_test_future',
-                        path:
-                        'assets/fair/lib_ui_test_future.fair.json',
-                      )));
+                            name: 'lib_ui_test_future',
+                            path: 'assets/fair/lib_ui_test_future.fair.json',
+                          )));
             }),
-
-
-
+            addItem("LoginPage", () {
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => LoginPage()));
+            }),
             addItem("测试app前后台切换", () {
               Navigator.push(
                   context,

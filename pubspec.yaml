@@ -16,7 +16,7 @@ dependencies:
   fair: ^3.4.0
   fair_extension: any
   get:
-
+  simple_animations:
 
 dev_dependencies:
   flutter_test:

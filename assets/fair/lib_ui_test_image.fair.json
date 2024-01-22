@@ -1,0 +1,45 @@
+{
+  "className": "Scaffold",
+  "na": {
+    "appBar": {
+      "className": "AppBar"
+    },
+    "body": {
+      "className": "SafeArea",
+      "na": {
+        "child": {
+          "className": "Column",
+          "na": {
+            "children": [
+              {
+                "className": "ListTile",
+                "na": {
+                  "title": {
+                    "className": "Text",
+                    "pa": [
+                      "123"
+                    ]
+                  }
+                }
+              },
+              {
+                "className": "Image.asset",
+                "pa": [
+                  "assets/images/11.png"
+                ]
+              },
+              {
+                "className": "Image.network",
+                "pa": [
+                  "https://img0.baidu.com/it/u=3859522405,494432625&fm=253&fmt=auto&app=120&f=JPEG?w=1000&h=500"
+                ]
+              }
+            ]
+          }
+        }
+      }
+    }
+  },
+  "methodMap": {},
+  "digest": "7ac29bdc9aa534b5fb30c422292f7c7d"
+}
