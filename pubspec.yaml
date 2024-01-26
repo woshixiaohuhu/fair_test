@@ -18,12 +18,17 @@ dependencies:
   get:
   simple_animations:
 
+  test_flutter_plugin:
+    path: ./plugins/test_flutter_plugin
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_lints: ^2.0.0
   build_runner: ^2.1.2
   fair_compiler: ^1.9.0
+
+
 
 dependency_overrides:
   collection: 1.17.0

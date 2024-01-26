@@ -8,6 +8,7 @@ import 'package:example/ui/test_btn.dart';
 import 'package:example/ui/test_delegate.dart';
 import 'package:example/ui/test_observer_lifecycle.dart';
 import 'package:example/ui/test_page_native.dart';
+import 'package:example/ui/test_pigeon.dart';
 import 'package:example/ui/test_statefullwidget_didupdatewidget.dart';
 import 'package:example/ui/xh_basic_plugin.dart';
 import 'package:fair/fair.dart';
@@ -108,6 +109,10 @@ class HomePage extends StatelessWidget {
       body: SafeArea(
         child: ListView(
           children: [
+            addItem("测试TestPigeon ", () {
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => const TestPigeon()));
+            }),
             addItem("测试图片fair", () {
               Navigator.push(
                   context,
@@ -128,13 +133,13 @@ class HomePage extends StatelessWidget {
             }),
             addItem("LoginPage", () {
               Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => LoginPage()));
+                  MaterialPageRoute(builder: (context) => const LoginPage()));
             }),
             addItem("测试app前后台切换", () {
               Navigator.push(
                   context,
                   MaterialPageRoute(
-                      builder: (context) => TestLifeCycleObserver()));
+                      builder: (context) => const TestLifeCycleObserver()));
             }),
             addItem("测试list view index title", () {
               Navigator.push(
@@ -215,7 +220,7 @@ class HomePage extends StatelessWidget {
             addItem("测试路由2-native包裹fair-获取pop返回值", () {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => FairNativePage()),
+                MaterialPageRoute(builder: (context) => const FairNativePage()),
               ).then((value) {
                 if (value is String) {
                   Fluttertoast.showToast(msg: value);
